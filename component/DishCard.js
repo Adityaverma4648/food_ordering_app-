@@ -3,7 +3,7 @@ import {Text,View,Image} from "react-native";
 
 const DishCard = (props) => {
   return (
-    <View className="w-11/12 h-full bg-red-900 mx-1 flex justify-center items-center" >
+    <View className="w-full h-full bg-red-900 mx-1 flex justify-center items-center" >
        <View className="w-full h-full absolute flex justify-center items-center">
            <Image
               source={{uri : props.image?props.image:props.orgImage }}

@@ -26,18 +26,15 @@ const HomeScreen = () => {
    
   return (
 
-    <SafeAreaView className="flex flex-col items-center min-w-screen h-screen bg-white">
-      
-      {/*  header ---------------------------------------------------------------------------------------*/}
-      <Header />
-      {/*  block ends here ----------------------------------------------------------------------------------------- */}
-      <View className="w-full flex flex-row justify-start items-center bg-red-500 overflow-x-scroll" style={{height:500}}>
+    <SafeAreaView className="min-w-screen min-h-screen flex flex-col justify-between items-center bg-white">
+      <Header className="h-2/11" />
+      <View className="w-full h-8/12 flex flex-row justify-start items-center bg-red-500 overflow-x-scroll">
           {dish.map((d,index)=>{
               return <DishCard key={index} orgImage={d.originalURL} image={d.imageURL} name={d.name} ingredients={d.ingredients} steps={d.steps} />
           })}
       </View>
       {/*  Footer------------------------------------------------------------------------------ */}
-      <Footer />
+      {/* <Footer className="h-2/12" /> */}
       {/* block ends here ------------------------------------------------------------------------------ */}
     </SafeAreaView>
    
