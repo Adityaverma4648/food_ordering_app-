@@ -3,17 +3,17 @@ import {Text,View,Image} from "react-native";
 
 const DishCard = (props) => {
   return (
-    <View className="w-full h-full bg-red-900 mx-1 flex justify-center items-center" >
+    <View className="h-full w-full bg-red-400 mx-1 flex flex-col justify-center items-center overflow-x-scroll" >
+       <View className="flex" >
+           <Text className="text-xl text-semibold text-yellow-500" >
+               {props.name}
+           </Text>
+       </View>
        <View className="w-full h-full absolute flex justify-center items-center">
            <Image
-              source={{uri : props.image?props.image:props.orgImage }}
-              className="w-11/12 h-1/2"
+              source={{uri : (props.image)  }}
+              className="w-full h-3/4"
             />
-       </View>
-       <View className="flex flex-col justify-center items-center" >
-             <Text>
-                  {props.name}
-             </Text>
        </View>
     </View>
   )

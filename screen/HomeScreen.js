@@ -7,7 +7,7 @@ import dish from "../data/dish.json";
 import Header from '../component/Header';
 import Footer from '../component/Footer';
 import DishCard from "../component/DishCard";
-
+import Category from "../component/Category";
 
 const HomeScreen = () => {
 
@@ -26,16 +26,31 @@ const HomeScreen = () => {
    
   return (
 
-    <SafeAreaView className="min-w-screen min-h-screen flex flex-col justify-between items-center bg-white">
-      <Header className="h-2/11" />
-      <View className="w-full h-8/12 flex flex-row justify-start items-center bg-red-500 overflow-x-scroll">
+    <SafeAreaView className="w-full h-full flex flex-col justify-between items-center">
+      <Header className="top-0 left-0 right-0 absolute" />
+
+      {/*  category Block */}
+
+      <Category />
+
+      {/*  category block ends here */}
+ 
+      <ScrollView className="w-full h-auto bg-slate-900 flex flex-column overflow-y-scroll">
+          <View className="w-full h-96 flex flex-row justify-start items-center" >
           {dish.map((d,index)=>{
-              return <DishCard key={index} orgImage={d.originalURL} image={d.imageURL} name={d.name} ingredients={d.ingredients} steps={d.steps} />
+              return <DishCard key={index} originalURL = {d.originalURL} image={d.imageURL} name={d.name} ingredients={d.ingredients} steps={d.steps} />
           })}
-      </View>
-      {/*  Footer------------------------------------------------------------------------------ */}
-      {/* <Footer className="h-2/12" /> */}
-      {/* block ends here ------------------------------------------------------------------------------ */}
+          </View>
+      </ScrollView>
+      <ScrollView>
+          <View>
+              {/* <Text>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis corporis delectus vitae laborum doloremque est perferendis quisquam nisi at consequatur officiis dicta totam distinctio laboriosam autem quae harum molestias, ad ducimus voluptates alias quia! Vitae minima accusamus beatae voluptate officiis error quidem nostrum nisi fugiat similique explicabo cum, est quod nesciunt eius sapiente illum aliquam voluptates quibusdam aspernatur iure sit eligendi! Deleniti, molestiae. Mollitia tempora, quasi voluptates nostrum iure enim labore! Dolore nemo quae, delectus aspernatur vitae sapiente.
+              </Text> */}
+          </View>
+      </ScrollView>
+
+      <Footer className="bottom-0 absolute left-0 right-0 z-50" />
     </SafeAreaView>
    
   );

@@ -3,7 +3,9 @@ import {Text} from "react-native";
 
 const OrderScreen = ({navigation,route}) => {
   return (
-    <Text>OrderScreen {route.params.route} </Text>
+    <Text>
+        OrderScreen
+    </Text>
   )
 }
 
