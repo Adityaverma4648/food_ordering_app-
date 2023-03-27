@@ -1,18 +1,26 @@
 import React from 'react';
-import { Text, View, ScrollView } from 'react-native';
-import CategoryCard from './CategoryCard';
-import cousine from "../data/cousine";
+import { View ,Text ,  ScrollView } from 'react-native';
+import cousine from "../data/cousine.json";
+import CategoryCard from "./CategoryCard";
+import {ChevronDoubleRightIcon , ChevronDoubleLeftIcon} from "react-native-heroicons/solid";
 
 const Category = () => {
   return (
-    <ScrollView className="w-full bg-gray-300" horizontal={true} >
-           <Text className="w-full text-xl text-semibold px-2 text-start" >
-               Cousines
-           </Text>
-         {cousine.map((d)=>{
-             return <CategoryCard cousineName={d.cousineName} imageUri = {imageUri} key={d.id} />
+    <View className="w-full py-2 flex flex-col-reverse justify-center items-center h-40 border-y border-gray-400" horizontal={true} >
+           <View className="w-full px-2 flex flex-row justify-end items-center" >
+                <Text className="text-sm" >
+                  <ChevronDoubleLeftIcon size={21} color="#000" />
+                </Text>
+                <Text className ="text-xl text-semibold " >
+                   Category
+                </Text>
+           </View>
+           <ScrollView className="px-1 w-full h-full flex" horizontal={true} >
+           {cousine.map((d)=>{
+             return <CategoryCard cousineName={d.cousineName} imageUri = {d.imageUri} key={d.id} />
          })}
-    </ScrollView>
+           </ScrollView>
+    </View>
   )
 }
 

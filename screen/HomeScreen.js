@@ -1,19 +1,21 @@
 import { View, Text, TextInput, Image, ScrollView , SafeAreaView } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import {FaMapMarkerAlt,FaStream} from "react-icons/fa";
 import { firebase } from '@react-native-firebase/database';
-import dish from "../data/dish.json";
 import Header from '../component/Header';
 import Footer from '../component/Footer';
-import DishCard from "../component/DishCard";
+import Cousine from "../component/Cousine";
 import Category from "../component/Category";
+import Dish from "../component/Dish";
+import Attention from "../component/Attention";
+
 
 const HomeScreen = () => {
 
   const navigation = useNavigation();
   const [text, setText] = useState('');
 
+  //  default navbar switched off
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -27,30 +29,39 @@ const HomeScreen = () => {
   return (
 
     <SafeAreaView className="w-full h-full flex flex-col justify-between items-center">
-      <Header className="top-0 left-0 right-0 absolute" />
+      <Header navigation={navigation} className="top-0 left-0 right-0 absolute" />
 
-      {/*  category Block */}
+      <ScrollView className="w-full h-auto" showsVerticalScrollIndicator={true} >   
+            <View className=" w-screen h-3/12 py-2 bg-red-500" >
+                 <View>
 
-      <Category />
+                 </View>
+                 <View className="w-full h-1/4">
+                     <Text>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore assumenda repudiandae ut in!
+                     </Text>
+                 </View>
+                   
+            </View>   
+           {/*  category Block */}
+            <Cousine />
+           {/*  category block ends here */}
+           {/*  category Block */}
+            <Category />
+           {/*  category block ends here */}
 
-      {/*  category block ends here */}
- 
-      <ScrollView className="w-full h-auto bg-slate-900 flex flex-column overflow-y-scroll">
-          <View className="w-full h-96 flex flex-row justify-start items-center" >
-          {dish.map((d,index)=>{
-              return <DishCard key={index} originalURL = {d.originalURL} image={d.imageURL} name={d.name} ingredients={d.ingredients} steps={d.steps} />
-          })}
-          </View>
+            <Attention />
+
+           {/*  Dishblock  */}
+            {/* <Dish /> */}
+
+           {/*  Dish block ends here  */}
+
+
+          
       </ScrollView>
-      <ScrollView>
-          <View>
-              {/* <Text>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis corporis delectus vitae laborum doloremque est perferendis quisquam nisi at consequatur officiis dicta totam distinctio laboriosam autem quae harum molestias, ad ducimus voluptates alias quia! Vitae minima accusamus beatae voluptate officiis error quidem nostrum nisi fugiat similique explicabo cum, est quod nesciunt eius sapiente illum aliquam voluptates quibusdam aspernatur iure sit eligendi! Deleniti, molestiae. Mollitia tempora, quasi voluptates nostrum iure enim labore! Dolore nemo quae, delectus aspernatur vitae sapiente.
-              </Text> */}
-          </View>
-      </ScrollView>
 
-      <Footer className="bottom-0 absolute left-0 right-0 z-50" />
+      <Footer navigation={navigation} className="bottom-0 absolute left-0 right-0 z-50" />
     </SafeAreaView>
    
   );

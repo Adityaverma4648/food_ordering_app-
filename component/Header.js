@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { TextInput,View ,Text,Button } from 'react-native';
-import {StopCircleIcon,ShoppingCartIcon,MagnifyingGlassIcon, HomeIcon} from "react-native-heroicons/solid";
-import OrderScreen from '../screen/OrderScreen';
+import {StopCircleIcon,ShoppingCartIcon,MagnifyingGlassIcon, HomeIcon , BellAlertIcon} from "react-native-heroicons/solid";
+
 
 const Header = ({navigation}) => {
 
@@ -30,7 +30,7 @@ const Header = ({navigation}) => {
 
 
                 {/*  serach bar block */}
-                 <View className="w-9/12 flex flex-row justify-start items-center rounded-xl border border-gray-500 px-2" >
+                 <View className="w-8/12 flex flex-row justify-start items-center rounded-xl border border-gray-500 px-2" >
                   <MagnifyingGlassIcon color = "#000" />
                  <TextInput
                      className="w-10/12 px-2 py-1 text-gray-900 bg-transparent"
@@ -47,10 +47,20 @@ const Header = ({navigation}) => {
 
 
                 {/*  CartButton block */}
-                 <Text className="w-1/12" >
+                 <Text className="w-1/12" onPress={()=>{
+                    navigation.navigate('OrderScreen')
+                 }} >
                     <ShoppingCartIcon color="#000" />
                  </Text>
                  {/*  CartBtn block ends here */}
+
+                  {/*  Settings */}
+                  <Text className="w-1/12" onPress={()=>{
+                    navigation.navigate('Notification')
+                 }} >
+                    <BellAlertIcon color="#000" />
+                 </Text>
+                  {/*  Seting Block Ends here */}
                 </View>
       </View>
   )
