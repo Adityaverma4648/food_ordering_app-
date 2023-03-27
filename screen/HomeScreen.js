@@ -31,18 +31,7 @@ const HomeScreen = () => {
     <SafeAreaView className="w-full h-full flex flex-col justify-between items-center">
       <Header navigation={navigation} className="top-0 left-0 right-0 absolute" />
 
-      <ScrollView className="w-full h-auto" showsVerticalScrollIndicator={true} >   
-            <View className=" w-screen h-3/12 py-2 bg-red-500" >
-                 <View>
-
-                 </View>
-                 <View className="w-full h-1/4">
-                     <Text>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore assumenda repudiandae ut in!
-                     </Text>
-                 </View>
-                   
-            </View>   
+      <ScrollView className="w-full h-auto" showsVerticalScrollIndicator={true} >      
            {/*  category Block */}
             <Cousine />
            {/*  category block ends here */}
@@ -61,7 +50,7 @@ const HomeScreen = () => {
           
       </ScrollView>
 
-      <Footer navigation={navigation} className="bottom-0 absolute left-0 right-0 z-50" />
+      <Footer navigation={navigation} className="bottom-0 absolute left-0 right-0 z-40" />
     </SafeAreaView>
    
   );
