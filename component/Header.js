@@ -12,12 +12,12 @@ const Header = ({navigation}) => {
     //          printer();
     //   },[])
 
-     [cancel, setCancel] = useState(false);
+   //   [cancel, setCancel] = useState(false);
      const [visibility, setVisibility] = useState(false);
 
-     const searchInitiated = (e) =>{
-         setCancel(true)
-     }
+   //   const searchInitiated = (e) =>{
+   //       setCancel(true)
+   //   }
 
      const toggleMenu = (e) =>{
          setVisibility(true);
@@ -30,7 +30,7 @@ const Header = ({navigation}) => {
 
   return (
        <>
-       {visibility ? <ToggleMenu parentCallBack={handleCallBack} visibility={visibility} /> : null }
+       {visibility ? <ToggleMenu parentCallBack={handleCallBack} visibility={visibility} /> : "" }
       <View className="w-full h-2/12 fixed flex flex-row justify-evenly items-center bg-slate-100 mt-6 top-0 z-40" >
                 <View className="w-full h-full py-2 flex flex-row justify-evenly items-center bg-gray-200" >
                 {/*  Logo Container  */}
@@ -53,21 +53,10 @@ const Header = ({navigation}) => {
                      onKeyUp={(e)=>searchInitiated(e)}
                   >
                  </TextInput>
-                 {cancel?<StopCircleIcon  color="#000" />:<HomeIcon className="hidden" />}
+                 {/* {cancel?<StopCircleIcon  color="#000" />:<HomeIcon className="hidden" />} */}
                  </View>
                {/*  serach blockends here */}
  
-
-
-
-                {/*  CartButton block */}
-                 <Text className="w-1/12" onPress={()=>{
-                    navigation.navigate('OrderScreen')
-                 }} >
-                    <ShoppingCartIcon color="#000" />
-                 </Text>
-                 {/*  CartBtn block ends here */}
-
                   {/*  Settings */}
                   <Text className="w-1/12" onPress={()=>{
                     navigation.navigate('Notification')
@@ -75,6 +64,16 @@ const Header = ({navigation}) => {
                     <BellAlertIcon color="#000" />
                  </Text>
                   {/*  Seting Block Ends here */}
+
+                   {/*  CartButton block */}
+                 <Text className="w-1/12" onPress={()=>{
+                    navigation.navigate('OrderScreen')
+                 }} >
+                    <ShoppingCartIcon color="#000" />
+                 </Text>
+                 {/*  CartBtn block ends here */}
+
+
                 </View>
       </View>
       </>

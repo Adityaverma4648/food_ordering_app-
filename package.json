@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/webpack-config": "^18.0.1",
     "@react-native-firebase/app": "^17.3.2",
     "@react-native-firebase/database": "^17.3.2",
     "@react-navigation/native": "^6.1.6",
