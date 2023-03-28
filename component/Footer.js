@@ -1,7 +1,6 @@
 import React from 'react'
 import {Text,View} from "react-native";
 import {HomeIcon, UserIcon , HeartIcon} from "react-native-heroicons/solid";
-import HomeScreen from '../screen/HomeScreen';
 
 const Footer = ({navigation}) => {
   return (
@@ -17,7 +16,9 @@ const Footer = ({navigation}) => {
          <View className="w-1/4 flex justify-center items-center" >
              <HeartIcon color="white" />
          </View>
-         <View className="w-1/4 flex justify-center items-center" >
+         <View className="w-1/4 flex justify-center items-center" onPress={(e)=>{
+              navigation.navigate("User");
+         }} >
              <UserIcon color="white" />
          </View>
     </View>
