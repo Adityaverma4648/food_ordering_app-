@@ -8,31 +8,35 @@ const ToggleMenu = (props) => {
                        id : 1,
                        icon : <BellAlertIcon />,
                        text : "Notification",
+                       route : "Notification",
                   
                       },
                       {
                        id : 2,
                        icon : <ClockIcon />,
                        text : "History",
+                       route : "History",
 
                       },
                       {
                        id : 3,
                        icon : <ChatBubbleBottomCenterIcon />,
                        text : "Chat",
+                       route : "Chat",
 
                       },
                       {
                        id : 4,
                        icon : <ShieldExclamationIcon />,
                        text : "Terms and Condition",
+                       route : "TermsAndCondition",
 
                       },
                       {
                         id : 5,
                         icon : <Cog6ToothIcon />,
                         text : "Setting",
- 
+                        route : "Setting",
                        }
 ]
 
@@ -67,10 +71,19 @@ const ToggleMenu = (props) => {
                  </Text>
              </View>
         </View>
-        <View className="w-full bg-red-500 flex flex-column justify-center items-center" >
+        <View className="w-full my-3 flex flex-column justify-center items-center" >
              {liElement.map((d)=>{
                   return(
-                     <Text className='w-full flex'>{d.text}</Text>
+                     <View className='w-10/12 py-2 px-2 flex flex-row justify-start items-center cursor-pointer' key={d.id} onPress={(e)=>{
+                            {props.navigation.navigate(d.route)}
+                     }} >
+                        <Text>
+                          {d.icon}
+                        </Text>
+                        <Text>
+                           {d.text}
+                        </Text>    
+                     </View>
                   )
              })}
         </View>

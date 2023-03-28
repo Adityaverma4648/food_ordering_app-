@@ -30,7 +30,7 @@ const Header = ({navigation}) => {
 
   return (
        <>
-       {visibility ? <ToggleMenu parentCallBack={handleCallBack} visibility={visibility} /> : "" }
+       {visibility ? <ToggleMenu navigation={navigation} parentCallBack={handleCallBack} visibility={visibility} /> : "" }
       <View className="w-full h-2/12 fixed flex flex-row justify-evenly items-center bg-slate-100 mt-6 top-0 z-40" >
                 <View className="w-full h-full py-2 flex flex-row justify-evenly items-center bg-gray-200" >
                 {/*  Logo Container  */}
@@ -47,7 +47,7 @@ const Header = ({navigation}) => {
                  <View className="w-8/12 flex flex-row justify-start items-center rounded-xl border border-gray-500 px-2" >
                   <MagnifyingGlassIcon color = "#000" />
                  <TextInput
-                     className="w-10/12 px-2 py-1 text-gray-900 bg-transparent"
+                     className="w-10/12 px-2 py-1 text-gray-900 border-0 bg-transparent"
                      placeholderTextColor="#000"
                      placeholder="Search Dishes...."
                      onKeyUp={(e)=>searchInitiated(e)}
