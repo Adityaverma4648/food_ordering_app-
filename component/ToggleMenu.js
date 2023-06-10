@@ -1,56 +1,58 @@
-import React,{useState} from 'react'
-import { View , Text , Image } from 'react-native';
+import React,{useEffect, useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { View , Text , Image , Pressable } from 'react-native';
 import { BellAlertIcon , ClockIcon  , ShieldExclamationIcon , Cog6ToothIcon , ChatBubbleBottomCenterIcon , XMarkIcon} from "react-native-heroicons/solid";
 
 const ToggleMenu = (props) => {
 
+  const navigation = useNavigation();
+
   const liElement = [{
                        id : 1,
-                       icon : <BellAlertIcon />,
+                       icon : <BellAlertIcon color="#000" />,
                        text : "Notification",
                        route : "Notification",
                   
                       },
                       {
                        id : 2,
-                       icon : <ClockIcon />,
+                       icon : <ClockIcon color="#000" />,
                        text : "History",
-                       route : "History",
+                       route : "Home",
 
                       },
                       {
                        id : 3,
-                       icon : <ChatBubbleBottomCenterIcon />,
+                       icon : <ChatBubbleBottomCenterIcon color="#000" />,
                        text : "Chat",
                        route : "Chat",
 
                       },
                       {
                        id : 4,
-                       icon : <ShieldExclamationIcon />,
+                       icon : <ShieldExclamationIcon color="#000" />,
                        text : "Terms and Condition",
                        route : "TermsAndCondition",
 
                       },
                       {
                         id : 5,
-                        icon : <Cog6ToothIcon />,
+                        icon : <Cog6ToothIcon color="#000" />,
                         text : "Setting",
                         route : "Setting",
                        }
 ]
-
   const dismissMenu = (e) =>{
       props.parentCallBack(true);
       e.preventDefault();
   }
 
   return (
-    <View className="w-3/4 h-full bg-white left-0 top-0 bottom-0 absolute z-50 py-5">
+    <View className="w-3/4 h-11/12 mt-8 bg-white left-0 top-0 bottom-0 absolute z-50">
         <View className="w-full h-1/5 flex flex-row justify-center items-center bg-slate-900" >
              <View className="w-3/4 px-2 h-full flex flex-row justify-start items-center">
                <View className="flex justify-center items-center rounded-full">
-                    <Image className="w-20 h-20 rounded-full" source={{ 
+                    <Image className="w-12 h-12 rounded-full" source={{ 
                       uri : "https://www.simplyrecipes.com/thmb/lapjIm2IrSHGS8ptjyhspa_BboU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Tandoori-Chicken-LEAD-01-7767f2892b824b24b65213f3ba28ff8c.jpg",
                     }} />
                     <View className="w-full px-2 text-xl flex flex-col">
@@ -64,26 +66,25 @@ const ToggleMenu = (props) => {
                </View>
              </View>
              <View className="w-1/4 h-full py-3 d-flex justify-start items-center" >
-                 <Text className="" onPress={(e)=>{
+                 <Text onPress={(e)=>{
                    dismissMenu(e)
                  }} >
                  <XMarkIcon color="#fff" />
                  </Text>
              </View>
         </View>
-        <View className="w-full my-3 flex flex-column justify-center items-center" >
+        <View className="w-full my-2 flex flex-column justify-center items-center" >
              {liElement.map((d)=>{
                   return(
-                     <View className='w-10/12 py-2 px-2 flex flex-row justify-start items-center cursor-pointer' key={d.id} onPress={(e)=>{
-                            {props.navigation.navigate(d.route)}
-                     }} >
-                        <Text>
-                          {d.icon}
-                        </Text>
-                        <Text>
-                           {d.text}
-                        </Text>    
-                     </View>
+                     <Pressable className='cursor-pointer w-11/12 py-3 px-2 my-1 flex flex-row justify-start items-center ' key={d.id} onPress={()=>{navigation.navigate(d.route)}}>
+                                 <View>
+                                   {d.icon}
+                                 </View>
+                                <Text className="px-2" >
+                                   {d.text}
+                                </Text> 
+                        
+                     </Pressable>
                   )
              })}
         </View>
@@ -91,4 +92,4 @@ const ToggleMenu = (props) => {
   )
 }
 
-export default ToggleMenu
+export default ToggleMenu;

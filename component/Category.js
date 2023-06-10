@@ -2,16 +2,12 @@ import React from 'react';
 import { View ,Text ,  ScrollView } from 'react-native';
 import cousine from "../data/cousine.json";
 import CategoryCard from "./CategoryCard";
-import {ChevronDoubleRightIcon , ChevronDoubleLeftIcon} from "react-native-heroicons/solid";
 
 const Category = () => {
   return (
-    <View className="w-full py-2 flex flex-col-reverse justify-center items-center h-40 border-y border-gray-400" horizontal={true} >
-           <View className="w-full px-2 flex flex-row justify-end items-center" >
-                <Text className="text-sm" >
-                  <ChevronDoubleLeftIcon size={21} color="#000" />
-                </Text>
-                <Text className ="text-xl text-semibold " >
+    <View className="w-full py-1 flex flex-col justify-center items-center h-40 border-y border-gray-500/50" horizontal={true} >
+           <View className="w-full px-2 my-1  flex flex-row justify-end items-center" >
+                <Text className ="text-lg text-semibold " >
                    Category
                 </Text>
            </View>

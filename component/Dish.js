@@ -5,7 +5,7 @@ import DishCard from './DishCard';
 
 const Dish = () => {
   return (
-    <ScrollView className="w-full h-96 flex flex-row" horizontal={true} >
+    <ScrollView className="w-screen h-3/4 bg-purple-300 flex flex-row" horizontal={true} >
           {dish.map((d,index)=>{
               return <DishCard  key={index} originalURL = {d.originalURL} image={d.imageURL} name={d.name} ingredients={d.ingredients} steps={d.steps} />
           })}

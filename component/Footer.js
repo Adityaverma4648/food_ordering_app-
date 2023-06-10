@@ -1,28 +1,33 @@
-import React from 'react'
-import {Text,View} from "react-native";
-import {HomeIcon, UserIcon , HeartIcon} from "react-native-heroicons/solid";
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import {View , Pressable} from "react-native";
+import {HomeIcon, UserIcon , HeartIcon , GlobeAltIcon} from "react-native-heroicons/solid";
 
-const Footer = ({navigation}) => {
+const Footer = () => {
+  const navigation = useNavigation();
+
   return (
     <View className="w-full h-16 flex flex-row justify-center items-center bg-slate-900 py-2" >
-         <View className="w-1/4 flex justify-center items-center" onPress={()=>{
-              navigation.navigate("Home")
+         <Pressable className="w-1/4 flex justify-center items-center" onPress={()=>{
+                    navigation.navigate('Home')
+                 }} >
+             <HomeIcon color="white" />
+         </Pressable>
+         <Pressable className="w-1/4 flex justify-center items-center" >
+             <GlobeAltIcon color="white" />
+         </Pressable>
+         <Pressable className="w-1/4 flex justify-center items-center" onPress={()=>{
+               navigation.navigate('Saved');
          }} >
-             <HomeIcon color="white" />
-         </View>
-         <View className="w-1/4 flex justify-center items-center" >
-             <HomeIcon color="white" />
-         </View>
-         <View className="w-1/4 flex justify-center items-center" >
              <HeartIcon color="white" />
-         </View>
-         <View className="w-1/4 flex justify-center items-center" onPress={(e)=>{
-              navigation.navigate("User");
+         </Pressable>
+         <Pressable className="w-1/4 flex justify-center items-center" onPress={()=>{
+              navigation.navigate('User');
          }} >
              <UserIcon color="white" />
-         </View>
+         </Pressable>
     </View>
   )
 }
 
-export default Footer
+export default Footer;

@@ -13,7 +13,7 @@ const CousineCard = (props) => {
                }}
             />
            </View>
-           <View className="text-sm text-red-500" >
+           <View className="text-sm text-center flex justify-center items-center text-red-500" >
                <Text className="text-blue-400" >
                   {props.cousineName}
                </Text>

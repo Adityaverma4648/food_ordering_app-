@@ -29,25 +29,22 @@ const HomeScreen = () => {
   return (
 
     <SafeAreaView className="w-full h-full flex flex-col justify-between items-center">
-      <Header navigation={navigation} className="top-0 left-0 right-0 absolute" />
+      <Header navigation={navigation} className="top-0 left-0 right-0 absolute z-40" />
 
       <ScrollView className="w-full h-auto" showsVerticalScrollIndicator={true} >      
-           {/*  category Block */}
+           {/*  cousines Block */}
             <Cousine />
-           {/*  category block ends here */}
+           {/*  cousines block ends here */}
+
            {/*  category Block */}
             <Category />
            {/*  category block ends here */}
-
+            
+           {/*  attention block  */}
             <Attention />
+           {/*  attention block ends here */}
 
-           {/*  Dishblock  */}
-            {/* <Dish /> */}
-
-           {/*  Dish block ends here  */}
-
-
-          
+           
       </ScrollView>
 
       <Footer navigation={navigation} className="bottom-0 absolute left-0 right-0 z-40" />

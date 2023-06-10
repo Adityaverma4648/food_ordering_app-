@@ -6,7 +6,7 @@ import cousine from "../data/cousine.json";
 const Cousines = () => {
   return (
     <View className="w-full h-40 "  >
-           <Text className="w-full my-2 text-xl text-semibold px-2 text-start" >
+           <Text className="w-full my-2 text-lg text-semibold px-2 text-start" >
                Cousines
            </Text>
            <ScrollView className="px-1 w-full h-full flex" horizontal={true} >
