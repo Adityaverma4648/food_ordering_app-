@@ -3,8 +3,11 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+//  importing Components 
+import Header from "./component/Header";
+import Footer from "./component/Footer";
 
-//  importing components
+//  importing Screens 
 import HomeScreen from "./screen/HomeScreen";
 import ExploreScreen from "./screen/ExploreScreen";
 import OrderScreen from "./screen/OrderScreen";
@@ -22,6 +25,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <TailwindProvider>
+        <Header />
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Explore" component={ExploreScreen} />
@@ -33,6 +37,7 @@ export default function App() {
           <Stack.Screen name="Register" component={RegisterScreen} />
           {/* <Stack.Screen name="Welcome" component={WelcomeScreen} /> */}
         </Stack.Navigator>
+        <Footer />
       </TailwindProvider>
     </NavigationContainer>
   );

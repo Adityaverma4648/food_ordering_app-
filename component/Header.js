@@ -32,13 +32,13 @@ const Header = ({navigation}) => {
   return (
        <>
        {visibility && <ToggleMenu parentCallBack={handleCallBack} /> }
-      <View className="w-full h-2/12 py-2 fixed flex flex-row justify-evenly items-center mt-6 top-0 z-40" >
-                <View className="w-full h-full py-2 flex flex-row justify-evenly items-center border-b border-gray-500/50" >
+      <View className="w-full h-4/12 mt-9 fixed flex flex-row justify-evenly items-center top-0 z-40 bg-white shadow-xl" >
+                <View className="w-full h-full py-2 flex flex-row justify-evenly items-center border-b border-gray-500/50 bg-slate-900" >
                 {/*  Logo Container  */}
-                   <Text className="h-2/12 flex justify-content-center align-items-center text-gray-900" onPress={(e)=>{
+                   <Text className="h-2/12 flex justify-content-center align-items-center text-white" onPress={(e)=>{
                       toggleMenu(e)
                    }} >
-                       <Bars3Icon color="#000" />
+                       <Bars3Icon color="#fff" />
                    </Text>
                 {/* Logo  block ends here */}
 
@@ -46,10 +46,10 @@ const Header = ({navigation}) => {
 
                 {/*  serach bar block */}
                  <View className="w-8/12 flex flex-row justify-start items-center rounded-xl border border-gray-500 px-2" >
-                  <MagnifyingGlassIcon color = "#000" />
+                  <MagnifyingGlassIcon color = "#fff" />
                  <TextInput
                      className="w-10/12 px-2 py-1 text-gray-900 border-0 bg-transparent"
-                     placeholderTextColor="#000"
+                     placeholderTextColor="#fff"
                      placeholder="Search Dishes...."
                      onKeyUp={(e)=>searchInitiated(e)}
                   >
@@ -61,7 +61,7 @@ const Header = ({navigation}) => {
                   <Text className="w-1/12" onPress={()=>{
                     navigation.navigate('Notification')
                  }} >
-                    <BellAlertIcon color="#000" />
+                    <BellAlertIcon color="#fff" />
                  </Text>
                   {/*  Seting Block Ends here */}
 
@@ -69,30 +69,13 @@ const Header = ({navigation}) => {
                  <Text className="w-1/12" onPress={()=>{
                     navigation.navigate('Order')
                  }} >
-                    <ShoppingBagIcon color="#000" />
+                    <ShoppingBagIcon color="#fff" />
                  </Text>
                  {/*  CartBtn block ends here */}
 
 
                 </View>
       </View>
-       {!close && <View className="w-full py-1 px-4 flex flex-row justify-between items-center animate-VerticalMovement bg-sky-100" id='location'>
-           <View className="w-1/2 flex flex-row justify-start items-center ">
-           
-                 <Pressable className="font-semibold px-2 py-1 border border-gray-500/50 flex flex-row" onPress={()=>{navigation.navigate('Welcome')}} > 
-                      <MapPinIcon color="#000" /> 
-                      <Text>
-                        Location
-                      </Text>
-                 </Pressable>
-          
-           </View>
-           <View className="w-1/2 flex flex-row items-center justify-end" >
-               <Pressable onPress={closeFun} >
-                 <XMarkIcon color="#000" />
-               </Pressable>
-           </View>
-       </View>}
       </>
   )
 }

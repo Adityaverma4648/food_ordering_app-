@@ -5,7 +5,7 @@ import cousine from "../data/cousine.json";
 
 const Cousines = () => {
   return (
-    <View className="w-full h-40 "  >
+    <View className="w-full h-40 bg-gradient-to-b from-slate-900 to-pink-400"  >
            <Text className="w-full my-2 text-lg text-semibold px-2 text-start" >
                Cousines
            </Text>

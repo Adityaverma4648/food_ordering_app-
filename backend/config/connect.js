@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-// const password = "pSMdTF06pZGKiZnp"
+
 const connectDB = async (uri)=>{
 
     try {

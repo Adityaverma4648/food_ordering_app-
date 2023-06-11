@@ -29,8 +29,6 @@ const HomeScreen = () => {
   return (
 
     <SafeAreaView className="w-full h-full flex flex-col justify-between items-center">
-      <Header navigation={navigation} className="top-0 left-0 right-0 absolute z-40" />
-
       <ScrollView className="w-full h-auto" showsVerticalScrollIndicator={true} >      
            {/*  cousines Block */}
             <Cousine />
@@ -46,8 +44,6 @@ const HomeScreen = () => {
 
            
       </ScrollView>
-
-      <Footer navigation={navigation} className="bottom-0 absolute left-0 right-0 z-40" />
     </SafeAreaView>
    
   );

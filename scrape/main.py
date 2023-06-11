@@ -65,7 +65,7 @@ cousineLinkList = []
 
 for entry in cousine:
     print(entry['cousineName'])
-    cousineLinkList.append(url + entry['cousineName'] + "Cousines")
+    cousineLinkList.append(url + entry['cousineName'].lower() + "Cousines")
 
 
 print(cousineLinkList)
