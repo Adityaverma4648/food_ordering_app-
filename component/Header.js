@@ -48,7 +48,7 @@ const Header = ({navigation}) => {
                  <View className="w-8/12 flex flex-row justify-start items-center rounded-xl border border-gray-500 px-2" >
                   <MagnifyingGlassIcon color = "#fff" />
                  <TextInput
-                     className="w-10/12 px-2 py-1 text-gray-900 border-0 bg-transparent"
+                     className="w-10/12 px-2 py-1 text-white border-0 bg-transparent"
                      placeholderTextColor="#fff"
                      placeholder="Search Dishes...."
                      onKeyUp={(e)=>searchInitiated(e)}
