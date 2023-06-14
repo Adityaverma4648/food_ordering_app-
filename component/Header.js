@@ -1,17 +1,14 @@
-import React, { useState,useEffect } from 'react'
-import { TextInput,View ,Text,Button , Pressable } from 'react-native';
-import {XMarkIcon , ShoppingBagIcon,MagnifyingGlassIcon, BellAlertIcon , Bars3Icon , MapPinIcon} from "react-native-heroicons/solid";
+import React, { useState,useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { TextInput,View ,Text, Pressable } from 'react-native';
+import { ShoppingBagIcon,MagnifyingGlassIcon, BellAlertIcon , Bars3Icon} from "react-native-heroicons/solid";
 import ToggleMenu from "../component/ToggleMenu";
 
-const Header = ({navigation}) => {
+const Header = () => {
 
-   //   [cancel, setCancel] = useState(false);
+     const navigation = useNavigation();
      const [visibility, setVisibility] = useState(false);
      const [close, setClose] = useState(false);
-
-   //   const searchInitiated = (e) =>{
-   //       setCancel(true)
-   //   }
 
    const getLocation = () =>{
       
@@ -58,19 +55,19 @@ const Header = ({navigation}) => {
                {/*  serach blockends here */}
  
                   {/*  Settings */}
-                  <Text className="w-1/12" onPress={()=>{
+                  <Pressable className="w-1/12" onPress={()=>{
                     navigation.navigate('Notification')
                  }} >
                     <BellAlertIcon color="#fff" />
-                 </Text>
+                 </Pressable>
                   {/*  Seting Block Ends here */}
 
                    {/*  CartButton block */}
-                 <Text className="w-1/12" onPress={()=>{
+                 <Pressable className="w-1/12" onPress={()=>{
                     navigation.navigate('Order')
                  }} >
                     <ShoppingBagIcon color="#fff" />
-                 </Text>
+                 </Pressable>
                  {/*  CartBtn block ends here */}
 
 

@@ -51,6 +51,9 @@ const handleVisibility = () =>{
            <View className="w-11/12 flex flex-col justify-center items-center py-4" >
 
                 <View className="w-full justify-center flex items-center my-2" >
+                   <View className="flex justify-center items-center">
+                                  
+                   </View>
                    <Text className="font-semibold text-xl" >
                      Login 
                    </Text>

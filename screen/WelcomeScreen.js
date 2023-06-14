@@ -42,9 +42,9 @@ const WelcomeScreen = () => {
 
   return (
     <View className="w-screen h-full flex justify-center items-center">
-        <ScrollView className="w-full h-full" horizontal={true} >
+        <ScrollView className="w-full h-full flex bg-red-400" horizontal={true} >
            {welcome.map((d)=>{
-              return <WelcomeCard key={d.id} className="w-full h-full flex justify-center items-center" data={d} /> 
+              return <WelcomeCard key={d.id} data={d} /> 
            })}
         </ScrollView>
     </View>
