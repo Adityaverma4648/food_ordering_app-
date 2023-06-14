@@ -16,13 +16,14 @@ const SettingScreen = () => {
 
   return (
    <SafeAreaView>
-        <Header className="top-0 right-0 left-0 absolute z-40" />
-        
+      
         <View>
-          
+           <Text>
+              Setting 
+           </Text>
         </View>
 
-        <Footer navigation={navigation} className="bottom-0 left-0 right-0 absolute z-50" />
+      
 
    </SafeAreaView>
   )

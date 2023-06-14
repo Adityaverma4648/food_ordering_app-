@@ -1,12 +1,14 @@
 import React from 'react';
-import { Text, View, ScrollView , TouchableOpacity } from 'react-native';
+import { StyleSheet , Text, View, ScrollView , TouchableOpacity } from 'react-native';
 import CousineCard from './CousineCard';
 import cousine from "../data/cousine.json";
 
 const Cousines = () => {
   return (
-    <View className="w-full h-40 bg-gradient-to-b from-slate-900 to-pink-400"  >
-           <Text className="w-full my-2 text-lg text-semibold px-2 text-start" >
+    <View className="w-full h-40" >
+           <Text className="w-full my-2 text-lg 
+Search Dishes....
+text-semibold px-2 text-start" >
                Cousines
            </Text>
            <ScrollView className="px-1 w-full h-full flex" horizontal={true} >

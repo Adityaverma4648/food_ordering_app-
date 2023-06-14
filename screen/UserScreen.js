@@ -44,7 +44,6 @@ const handleVisibility = () =>{
   return (
     <>
     <SafeAreaView className="w-screen h-full flex flex-column justify-between items-center mb-2 relative " >
-        <Header className="top-0 right-0 left-0 absolute z-40" />
 
       <View className="w-full h-full flex flex-col justify-start items-center z-10 relative">
       

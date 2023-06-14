@@ -16,7 +16,7 @@ import NotificationScreen from "./screen/NotificationScreen";
 import UserScreen from "./screen/UserScreen";
 import SavedScreen from "./screen/SavedScreen";
 import RegisterScreen from "./screen/RegisterScreen";
-
+import WelcomeScreen from "./screen/WelcomeScreen";
 
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +27,7 @@ export default function App() {
       <TailwindProvider>
         <Header />
         <Stack.Navigator>
+          <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Explore" component={ExploreScreen} />
           <Stack.Screen name="Order" component={OrderScreen} />
@@ -35,7 +36,6 @@ export default function App() {
           <Stack.Screen name="User" component={UserScreen} />
           <Stack.Screen name="Saved" component={SavedScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
-          {/* <Stack.Screen name="Welcome" component={WelcomeScreen} /> */}
         </Stack.Navigator>
         <Footer />
       </TailwindProvider>

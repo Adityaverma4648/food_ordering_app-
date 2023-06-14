@@ -1,12 +1,9 @@
 import { View, Text, TextInput, Image, ScrollView , SafeAreaView } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { firebase } from '@react-native-firebase/database';
-import Header from '../component/Header';
-import Footer from '../component/Footer';
+
 import Cousine from "../component/Cousine";
 import Category from "../component/Category";
-import Dish from "../component/Dish";
 import Attention from "../component/Attention";
 
 
@@ -42,7 +39,7 @@ const HomeScreen = () => {
             <Attention />
            {/*  attention block ends here */}
 
-           
+           {/*  */}
       </ScrollView>
     </SafeAreaView>
    
