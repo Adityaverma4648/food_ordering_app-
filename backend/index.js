@@ -1,5 +1,8 @@
 require("dotenv").config();
 const express = require('express');
+const apiRoutes = require('./routes/apiRoutes');
+const authRoutes = require('./routes/authRoutes');
+
 // ------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -14,7 +17,12 @@ const connectDB = require("./config/connect");
 const PORT = process.env.PORT||7000;
 
 
-
+//  Routes intialized
+app.get('/',(req , res)=>{
+    res.send('Hello welcome to default URL');
+})
+app.use('/api',apiRoutes);
+app.use('/auth', authRoutes);
 
 
 const start = async ()=>{

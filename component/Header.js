@@ -29,7 +29,7 @@ const Header = () => {
   return (
        <>
        {visibility && <ToggleMenu parentCallBack={handleCallBack} /> }
-      <View className="w-full h-4/12 mt-9 fixed flex flex-row justify-evenly items-center top-0 z-40 bg-white shadow-xl" >
+      <View className="w-full md:h-60 h-10 mt-9 sm:mt-0 fixed flex flex-row justify-evenly items-center top-0 z-40 bg-white shadow-xl" >
                 <View className="w-full h-full py-2 flex flex-row justify-evenly items-center border-b border-gray-500/50 bg-slate-900" >
                 {/*  Logo Container  */}
                    <Text className="h-2/12 flex justify-content-center align-items-center text-white" onPress={(e)=>{
@@ -46,6 +46,8 @@ const Header = () => {
                   <MagnifyingGlassIcon color = "#fff" />
                  <TextInput
                      className="w-10/12 px-2 py-1 text-white border-0 bg-transparent"
+                     name="search"
+                     id='search'
                      placeholderTextColor="#fff"
                      placeholder="Search Dishes...."
                      onKeyUp={(e)=>searchInitiated(e)}

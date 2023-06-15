@@ -7,7 +7,7 @@ const Footer = () => {
   const navigation = useNavigation();
 
   return (
-    <View className="w-full h-16 flex flex-row justify-center items-center bg-slate-900 py-2" >
+    <View className="absolute bottom-0 z-40 w-full h-16 flex flex-row justify-center items-center bg-slate-900 py-2" >
          <Pressable className="w-1/4 flex justify-center items-center" onPress={()=>{
                     navigation.navigate('Home')
                  }} >

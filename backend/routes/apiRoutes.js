@@ -1,15 +1,58 @@
 const express = require('express');
 const router  = express.Router();
+
+//  to be removed as data will be fetched from mongoDB
 const category = require('../data/category.json');
 const cousines = require('../data/cousine.json');
 
-router.post('/category',(req, res)=>{
-   res.send(category);
-})
+// importing all models required
 
-router.post('/cousines',(req,res)=>{
+//  Cousines-------------------------------------------------------------------------
+router.post('/fetchCousines',(req,res)=>{
    res.send(cousines);
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.post('/',(req , res)=>{
    res.send(category);
