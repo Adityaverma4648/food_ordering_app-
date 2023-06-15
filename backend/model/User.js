@@ -12,13 +12,14 @@ const userSchema = new mongoose.Schema({
         required : true
         
     },
-    designation : {
-      type : String,
-      required : true,
-    },
     password : {
          type : String,
          required : true
+    },
+    isAdmin : {
+      type :Boolean,
+      required : true,
+      default : false
     }
 },
 {

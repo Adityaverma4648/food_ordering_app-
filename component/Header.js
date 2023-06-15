@@ -29,7 +29,7 @@ const Header = () => {
   return (
        <>
        {visibility && <ToggleMenu parentCallBack={handleCallBack} /> }
-      <View className="w-full md:h-60 h-10 mt-9 sm:mt-0 fixed flex flex-row justify-evenly items-center top-0 z-40 bg-white shadow-xl" >
+      <View className="w-full h-16 mt-9 sm:mt-0 fixed flex flex-row justify-evenly items-center top-0 z-40 bg-white shadow-xl" >
                 <View className="w-full h-full py-2 flex flex-row justify-evenly items-center border-b border-gray-500/50 bg-slate-900" >
                 {/*  Logo Container  */}
                    <Text className="h-2/12 flex justify-content-center align-items-center text-white" onPress={(e)=>{

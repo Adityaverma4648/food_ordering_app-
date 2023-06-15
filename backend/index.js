@@ -1,5 +1,10 @@
 require("dotenv").config();
 const express = require('express');
+const cors = require('cors');
+const passport = require('passport');
+const cookieSession = require('cookie-session');
+
+//  Routes files
 const apiRoutes = require('./routes/apiRoutes');
 const authRoutes = require('./routes/authRoutes');
 
@@ -16,6 +21,24 @@ const connectDB = require("./config/connect");
 // PORT decision
 const PORT = process.env.PORT||7000;
 
+app.use(
+	cookieSession({
+		name: "session",
+		keys: ["foodLover"],
+		maxAge: 24 * 60 * 60 * 100,
+	})
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(
+	cors({
+		origin: "http://localhost:3000",
+		methods: "GET,POST,PUT,DELETE",
+		credentials: true,
+	})
+);
 
 //  Routes intialized
 app.get('/',(req , res)=>{

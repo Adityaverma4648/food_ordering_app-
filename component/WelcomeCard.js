@@ -1,24 +1,16 @@
 import React from 'react'
 import { View , Text , StyleSheet } from 'react-native'
+import { ScrollView } from 'react-native';
 
 const WelcomeCard = ({data}) => {
 
   return (
-    <View className="text-xl w-full h-full flex justify-center items-center bg-blue-500" style={styles.container} >
-         <Text className >
-           {data.id}
+    <View className="text-xl w-screen h-screen flex bg-blue-500 justify-center items-center" >
+         <Text className="text-center" >
+            {data.id}
          </Text>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container :{
-    flex : 1,
-    justifyContent : 'center',
-    alignItems : 'center',
-  },
-})
-
 
 export default WelcomeCard;
