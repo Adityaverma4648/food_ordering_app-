@@ -50,18 +50,22 @@ const handleVisibility = () =>{
      
            <View className="w-11/12 flex flex-col justify-center items-center py-4" >
 
-                <View className="w-full justify-center flex items-center my-2" >
-                   <View className="flex justify-center items-center">
-                                  
+                <View className="w-full h-1/2 flex flex-col justify-start items-center my-2" >
+                   <View className="w-full flex justify-center items-center">
+                        <Text className="text-2xl font-semibold" >
+                            Welcome Back
+                        </Text>
                    </View>
-                   <Text className="font-semibold text-xl" >
-                     Login 
+                   <Text className="text-md" >
+                        Sign Up to continue !
                    </Text>
+                   <View className="flex justify-center items-center" >
+                        
+                   </View>
                 </View>
               
                 <View className="mb-2 w-full h-10 flex justify-center items-center border border-gray-500/50 rounded-md px-1">
                   <TextInput 
-    
                   className='w-full h-full px-2' 
                   value={userName}  
                   placeholder='UserName'
@@ -71,7 +75,6 @@ const handleVisibility = () =>{
 
                  <View className="mb-2 w-full h-10 flex flex-row justify-between items-center border border-gray-500/50 rounded-md px-1">
                    <TextInput 
-
                    className='w-10/12 h-full px-2'
                    value={password}
                    placeholder='Password'
@@ -88,9 +91,9 @@ const handleVisibility = () =>{
                         {password ? <Text className='text-black' >{JSON.stringify(password)}</Text> : <Text>Empty</Text>}
                      </Text>
                   </View>}
-                 <View className="mb-1 w-full h-10 rounded-md px-1 flex flex-row justify-center items-center border border-gray-500/50 gradient bg-indigo-500/50" >
+                 <View className="mb-1 w-full h-10 rounded-md px-1 flex flex-row justify-center items-center border border-gray-500/50 gradient bg-slate-900" >
                     <Pressable className=" selection:w-full h-full flex flex-row justify-center items-center rounded-md px-2 bg-transparent" onPress={handleSubmit} >
-                        <Text className="text-center text-black/60" >
+                        <Text className="text-center text-white" >
                           Submit
                         </Text>
                     </Pressable>

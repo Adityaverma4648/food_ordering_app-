@@ -25,7 +25,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <TailwindProvider>
-        <Header />
+        {/* <Header /> */}
         <Stack.Navigator>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
