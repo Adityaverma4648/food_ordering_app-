@@ -1,11 +1,14 @@
 import React from 'react'
+import { SafeAreaView } from 'react-native';
 import {Text} from "react-native";
 
 const OrderScreen = ({navigation,route}) => {
   return (
-    <Text>
-        OrderScreen
-    </Text>
+    <SafeAreaView>
+       <Text>
+          OrderScreen
+       </Text>
+    </SafeAreaView>
   )
 }
 

@@ -1,24 +1,25 @@
 const express = require('express');
 const router  = express.Router();
 const passport = require('passport');
-const cookie = require('cookie-session');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
-
+const generateToken = require("../config/Jwt");
+const jwt = require('jsonwebtoken');
 
 // importing Models
 
 const User = require('../model/User');
 
-
-// cookies and session 
-router.use(cookieParser())
-// Session Setup
-router.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: true,
-  saveUninitialized: true,
-  cookie : {  },
-}))
+const verifyToken = (req , res , next) =>{
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (token == null) return res.sendStatus(403);
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+  if (err) return res.sendStatus(404);
+  req.user = user;
+  next();
+  }); 
+}
 
 //  user controller - post data gathering-- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 router.post("/register", async (req,res)=>{
@@ -31,7 +32,7 @@ router.post("/register", async (req,res)=>{
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      res.status(409).send('User already Exists...');
+      res.status(400).json('User already Exists...');
     }
     const user = await User.create({
         userName,
@@ -41,10 +42,10 @@ router.post("/register", async (req,res)=>{
       });
     
       if (user) {
-        res.status(201).redirect('login');
+        res.status(201).json("Registered Successfully");
         //  redirected on login 
       } else {
-        res.status(409).res.send('CouldNot Register');
+        res.status(400).json('CouldNot Register');
       }
 
 });
@@ -56,18 +57,17 @@ router.post("/login",(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
   if (user && (await user.matchPassword(password))) {
-    const token  = generateToken(user._id);
-    const userData  = await User.find({email});
-    req.session.userData = userData;
-    res.cookie("userDesignation" ,userData[0].designation);
-    res.cookie("userName",userData[0].userName);
-    res.cookie("token",token);
-    res.cookie("UserEmail" , email);
-    res.status(200).json(userData).redirect('/');
+    const token  = generateToken(user);
+    res.status(200).json({token});
   } else {
-    res.status(200).redirect('UserError')
+    res.status(200).redirect('UserError');
   }
 }))
+
+router.post('/logout',verifyToken , async (req , res)=>{
+  localStorage.removeItem("token");
+  res.status(200).send('Successfully Logged Out!');
+} )
 
 //  google oauth20
 
@@ -100,9 +100,5 @@ router.get(
 	})
 );
 
-router.get("/logout", (req, res) => {
-	req.logout();
-	res.redirect(process.env.CLIENT_URL);
-});
 
 module.exports = router;

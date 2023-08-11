@@ -12,7 +12,6 @@ router.post('/fetch',(req, res)=>{
  
 router.post('/fetchOneCategory/id', (req , res)=>{
     res.send(Category);    
-    //  based on ID 
 })
 
  //  for admin

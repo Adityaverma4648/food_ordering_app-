@@ -1,8 +1,13 @@
 import React from 'react'
+import { View , Text } from 'react-native-web'
 
 const ExploreScreen = () => {
   return (
-    <div>Explore</div>
+    <View>
+      <Text>
+        Explore
+      </Text>
+    </View>
   )
 }
 

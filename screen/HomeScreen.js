@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import Cousine from "../component/Cousine";
 import Category from "../component/Category";
 import Attention from "../component/Attention";
+import Cousines from "../component/Cousine";
 
 
 const HomeScreen = () => {
@@ -25,7 +26,7 @@ const HomeScreen = () => {
    
   return (
 
-    <SafeAreaView className="w-full h-full flex flex-col justify-between items-center">
+    <SafeAreaView className="w-full h-auto flex flex-col justify-between items-center">
       <ScrollView className="w-full h-auto" showsVerticalScrollIndicator={true} >      
            {/*  cousines Block */}
             <Cousine />
@@ -39,7 +40,6 @@ const HomeScreen = () => {
             <Attention />
            {/*  attention block ends here */}
 
-           {/*  */}
       </ScrollView>
     </SafeAreaView>
    

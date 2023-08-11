@@ -5,8 +5,6 @@ import CategoryCard from "./CategoryCard";
 
 const Category = () => {
 
-  console.log(category);
-
   return (
     <View className="w-full py-1 flex flex-col justify-center items-center h-40 border-y border-gray-500/50" horizontal={true} >
            <View className="w-full px-2 my-1  flex flex-row justify-end items-center" >

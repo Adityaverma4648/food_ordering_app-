@@ -19,6 +19,13 @@ const RegisterScreen = () => {
   const [visible, setVisible] = useState(false);
   
 
+  const googleAuth = () => {
+		window.open(
+			`${process.env.REACT_APP_URL}/auth/google/callback`,
+			"_self"
+		);
+	};
+
   const handleSubmit = () =>{
     if(password && userName && userEmail ){
       console.log("submit");
@@ -89,16 +96,28 @@ const RegisterScreen = () => {
                </Pressable>
             </View>
 
+            <View>
+               <Text>
+                  OR
+               </Text>
+            </View>
+
+            <View>
+               <pressable onPress={googleAuth}>
+						      {/*  Icons */}
+					       	<span>Sign up with Google</span>
+					    </pressable>
+            </View>
+
             <View className=" w-full h-10 rounded-md px-1 flex flex-row justify-start items-center" >
                <Pressable className="w-full h-full flex flex-row justify-start items-center rounded-md bg-transparent" onPress={()=>{
-               navigation.navigate('Register')
+               navigation.navigate(Register)
             }} >
                    <Text className="text-red-400 text-sm " >
                       Do not have an account?
                    </Text>
                </Pressable>
             </View>
-         
       </View>
     </View>
   )

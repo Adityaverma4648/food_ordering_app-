@@ -1,32 +1,47 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {View , Pressable} from "react-native";
-import {HomeIcon, UserIcon , HeartIcon , GlobeAltIcon} from "react-native-heroicons/solid";
+import {View ,Text, Pressable} from "react-native";
+import {HomeIcon, UserIcon , HeartIcon , GlobeAltIcon} from "react-native-heroicons/outline";
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Footer = () => {
   const navigation = useNavigation();
 
   return (
-    <View className="absolute bottom-0 z-40 w-full h-16 flex flex-row justify-center items-center bg-slate-900 py-2" >
-         <Pressable className="w-1/4 flex justify-center items-center" onPress={()=>{
+    <LinearGradient colors={["#f285be" ,"#96e7ff"]} className="absolute bottom-0 z-40 w-11/12 h-14  flex flex-row justify-center items-center   py-2 rounded-full" >
+         <Pressable className="w-1/4 flex flex-col justify-center items-center" onPress={()=>{
                     navigation.navigate('Home')
                  }} >
-             <HomeIcon color="white" />
+             <HomeIcon color="#000" />
+             <Text className="text-sm">
+                  Home
+             </Text>
          </Pressable>
-         <Pressable className="w-1/4 flex justify-center items-center" >
-             <GlobeAltIcon color="white" />
+         <Pressable className="w-1/4 flex flex-col justify-center items-center"  onPress={()=>{
+            navigation.navigate('Explore')
+         }}  >
+             <GlobeAltIcon color="#000" />
+             <Text className="text-sm">
+                  Discover
+             </Text>
          </Pressable>
-         <Pressable className="w-1/4 flex justify-center items-center" onPress={()=>{
+         <Pressable className="w-1/4 flex flex-col justify-center items-center" onPress={()=>{
                navigation.navigate('Saved');
          }} >
-             <HeartIcon color="white" />
+             <HeartIcon color="#000" />
+             <Text className="text-sm">
+                  Saved
+             </Text>
          </Pressable>
-         <Pressable className="w-1/4 flex justify-center items-center" onPress={()=>{
+         <Pressable className="w-1/4 flex flex-col justify-center items-center" onPress={()=>{
               navigation.navigate('User');
          }} >
-             <UserIcon color="white" />
+             <UserIcon color="#000" />
+             <Text className="text-sm">
+                  User
+             </Text>
          </Pressable>
-    </View>
+    </LinearGradient>
   )
 }
 

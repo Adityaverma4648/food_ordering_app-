@@ -2,8 +2,9 @@ import React,{useEffect, useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View , Text , Image , Pressable } from 'react-native';
 import { BellAlertIcon , ClockIcon  , ShieldExclamationIcon , Cog6ToothIcon , ChatBubbleBottomCenterIcon , XMarkIcon} from "react-native-heroicons/solid";
+import {LinearGradient} from 'expo-linear-gradient';
 
-const ToggleMenu = (props) => {
+const ToggleMenu = ({parentCallBack}) => {
 
   const navigation = useNavigation();
 
@@ -42,14 +43,11 @@ const ToggleMenu = (props) => {
                         route : "Setting",
                        }
 ]
-  const dismissMenu = (e) =>{
-      props.parentCallBack(true);
-      e.preventDefault();
-  }
+
 
   return (
-    <View className="w-3/4 h-11/12 mt-8 bg-white left-0 top-0 bottom-0 absolute z-50">
-        <View className="w-full h-1/5 flex flex-row justify-center items-center bg-slate-900" >
+    <View className="w-3/4 h-11/12 bg-white left-0 top-0 text-white bottom-0 absolute z-50">
+        <LinearGradient colors={["#0f172a" , "#1d2842"]} start={{  x: 0, y: 0 }}  end={{ x: 1, y: 1 }} className="w-full h-1/5 flex flex-row justify-center items-center bg-slate-900" >
              <View className="w-3/4 px-2 h-full flex flex-row justify-start items-center">
                <View className="flex justify-center items-center rounded-full">
                     <Image className="w-12 h-12 rounded-full" source={{ 
@@ -59,20 +57,20 @@ const ToggleMenu = (props) => {
                          <Text className="text-md text-white" >
                                   UserName 
                          </Text>
-                         <Text className="text-xsm text-gray-500" >
+                         <Text className="text-sm text-gray-500" >
                                   userEmail
                         </Text>
                     </View>
                </View>
              </View>
              <View className="w-1/4 h-full py-3 d-flex justify-start items-center" >
-                 <Text onPress={(e)=>{
-                   dismissMenu(e)
+                 <Pressable onPress={()=>{
+                   parentCallBack(false);
                  }} >
                  <XMarkIcon color="#fff" />
-                 </Text>
+                 </Pressable>
              </View>
-        </View>
+        </LinearGradient>
         <View className="w-full my-2 flex flex-column justify-center items-center" >
              {liElement.map((d)=>{
                   return(

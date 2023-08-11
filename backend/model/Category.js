@@ -11,11 +11,11 @@ const categorySchema = new mongoose.Schema({
         dishes : [{
             name : String, 
             image : String,
-            ingridients : [
-                
-            ],
             description : String 
         }]
+},
+{
+    timestamps : true,
 });
 
 module.exports= mongoose.model("Category",categorySchema);
