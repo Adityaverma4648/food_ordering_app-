@@ -3,17 +3,17 @@ import { StyleSheet , Text, View, ScrollView , TouchableOpacity } from 'react-na
 import CousineCard from './CousineCard';
 import cousine from "../data/cousine.json";
 
-const Cousines = () => {
+const Cousines = ({navigation}) => {
   return (
-    <View className="w-full h-40" >
-           <Text className="w-full my-2 text-lg 
-Search Dishes....
-text-semibold px-2 text-start" >
+    <View className="w-full h-40 bg-blue-100" style={{height : 200}} >
+           <View className="flex h-10 justify-center items-center" >
+           <Text className="w-full my-2 text-xl font-semibold px-2 text-start" >
                Cousines
            </Text>
-           <ScrollView className="px-1 w-full h-full flex" horizontal={true} >
+           </View>
+           <ScrollView className="px-1 w-full flex flex-1" horizontal={true} contentContainerStyle={{justifyContent : "center" ,alignItems : 'center'}}>
            {cousine.map((d)=>{
-             return <CousineCard cousineName={d.cousineName} imageUri = {d.imageUri} key={d.id} />
+             return <CousineCard data={d} navigation={navigation} id={d.id} name={d.cousineName} image = {d.imageUri} key={d.id} />
          })}
            </ScrollView>
     </View>

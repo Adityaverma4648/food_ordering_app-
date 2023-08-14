@@ -1,14 +1,24 @@
-import React,{useState , useLayoutEffect , useEffect} from 'react';
-import { View , Text , Pressable ,SafeAreaView } from 'react-native';
+import React, { useState, useLayoutEffect, useEffect } from "react";
+import {
+  View,
+  Text,
+  Image,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  Animated
+} from "react-native";
+
 import { useNavigation } from "@react-navigation/native";
-import { ChevronDoubleRightIcon } from "react-native-heroicons/solid"
+import { ChevronDoubleRightIcon } from "react-native-heroicons/solid";
 
 //  importing welcome cards
 import WelcomeCard from "../component/WelcomeCard";
+import { Circle } from "react-native-svg";
 
 const WelcomeScreen = () => {
-
   const navigation = useNavigation();
+  const [scrollOffset, setScrollOffset] = useState(0);
 
   //  default navbar switched off
   useLayoutEffect(() => {
@@ -17,68 +27,63 @@ const WelcomeScreen = () => {
     });
   }, []);
 
-  const [index, setIndex] = useState(0);
-  const [arr, setArr] = useState([]);
-  
-  const indexSetter = (id) =>{
-     setIndex(id-1);
-  }
-  
-  useEffect(()=>{
-    const res = [welcome[index]];
-    setArr(res);
-  },[index]);
-
-
-    const welcome = [{
-                        id : 1,
-                        image : "https://images.unsplash.com/photo-1647431208004-6ebaa824bce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ0OHx4alBSNGhsa0JHQXx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
-                        title : "The Experience Of Buying Food Quickly",
-                        body : "",
-                        allowAuth : true,
-                      },{
-                        id : 2,
-                        image : "https://images.unsplash.com/photo-1647431208004-6ebaa824bce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ0OHx4alBSNGhsa0JHQXx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
-                        title : "",
-                        body : "",
-                        allowAuth : true,
-                      },{
-                        id : 3,
-                        image : "https://images.unsplash.com/photo-1647431208004-6ebaa824bce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ0OHx4alBSNGhsa0JHQXx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
-                        title : "",
-                        body : "",
-                        allowAuth : true,
-                      },{
-                        id : 4,
-                        image : "https://images.unsplash.com/photo-1647431208004-6ebaa824bce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ0OHx4alBSNGhsa0JHQXx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
-                        title : "",
-                        body : "",
-                        allowAuth : true,
-                      }]
-
+  const welcome = [
+    {
+      id: 1,
+      image: "../assets/render1.png",
+      title: "The Experience Of Buying Food Quickly",
+      body: "",
+      allowAuth: true,
+    },
+    {
+      id: 2,
+      image: "../assets/render1.png",
+      title: "The Experience Of Buying Food Quickly",
+      body: "",
+      allowAuth: true,
+    },
+    {
+      id: 3,
+      image: "../assets/render1.png",
+      title: "The Experience Of Buying Food Quickly",
+      body: "",
+      allowAuth: true,
+    },
+    {
+      id: 4,
+      image: "../assets/render1.png",
+      title: "The Experience Of Buying Food Quickly",
+      body: "",
+      allowAuth: true,
+    },
+  ];
 
   return (
-    <SafeAreaView className="w-screen h-screen flex justify-center items-center relative bg-red-900/20" >
-      <View className="w-screen h-4/5 bg-red-900 relative flex flex-col justify-center items-center">  
-        
-          <View className="w-full absolute top-0 end-0 p-4 flex flex-row justify-end items-center" >
-          <Pressable
-          className="w-1/4 flex flex-row justify-center items-center z-10 cursor-pointer"
-          onPress={() => {
-            navigation.navigate("Home");
-          }}
-        >
-          <Text>Visit Home</Text>
-          <ChevronDoubleRightIcon color="#000" className="text-sm" size="16" />
-        </Pressable>
-       </View>
+    <SafeAreaView className="w-full h-full flex justify-center items-center relative">
+      <Pressable
+        className="w-1/4 z-10 cursor-pointer m-8 flex flex-row justify-center
+          items-center absolute top-0 end-0"
+        onPress={() => {
+          navigation.navigate("Home");
+        }}
+      >
+        <Text className="font-semibold">Visit Home</Text>
+        <ChevronDoubleRightIcon
+          color="#000"
+          className="text-sm font-semibold"
+          size="16"
+        />
+      </Pressable>
 
-
-      <View className="w-full h-4/5 flex flex-row justify-start items-center ">
-        {arr?.map((d) => {
+      <ScrollView
+        horizontal
+        contentOffset={{ x: scrollOffset }}
+        className="w-full h-full flex flex-row bg-green-100 relative"
+      >
+        {welcome?.map((d, index) => {
           return (
             <WelcomeCard
-              key={d.id}
+              key={index}
               id={d.id}
               image={d.image}
               title={d.title}
@@ -87,26 +92,25 @@ const WelcomeScreen = () => {
             />
           );
         })}
-      </View>
-      {/*  slider buttons */}
-        <View className="w-full absolute bottom-0 flex flex-row items-center justify-center mb-20 py-2">
+      </ScrollView>
+
+      <View className="absolute z-10 flex flex-row bottom-0 mb-32">
         {welcome.map((d) => {
           return (
             <Pressable
               key={d.id}
-              className="mx-2"
               onPress={() => {
-                indexSetter(d.id);
+                setTimeout(() => {
+                  setScrollOffset((d.id - 1) * 426);
+                }, 3000);
               }}
-            >
-              <Text className="w-2 h-2 rounded-full bg-gray-400"></Text>
-            </Pressable>
+              className="w-2 h-2 rounded-full bg-yellow-600 mx-1.5"
+            ></Pressable>
           );
         })}
-        </View>
       </View>
     </SafeAreaView>
   );
-}
+};
 
 export default WelcomeScreen;

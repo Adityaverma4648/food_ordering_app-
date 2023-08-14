@@ -1,0 +1,118 @@
+[{
+    "id": 1,
+    "name": "Delicious Bites",
+    "cuisine": "Italian",
+    "address": "123 Main Street, City",
+    "phone": "123-456-7890",
+    "menu": [
+      {
+        "id": 101,
+        "name": "Margherita Pizza",
+        "image" : "https://images.unsplash.com/photo-1589187151053-5ec8818e661b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+        "description": "Classic pizza with tomato, mozzarella, and basil",
+        "price": 10.99
+      },
+      {
+        "id": 102,
+        "name": "Pasta Carbonara",
+        "image" : "https://images.unsplash.com/photo-1481931098730-318b6f776db0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=690&q=80",
+        "description": "Spaghetti with eggs, cheese, and pancetta",
+        "price": 12.99
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Spice Fusion",
+    "cuisine": "Indian",
+    "address": "456 Park Avenue, Town",
+    "phone": "987-654-3210",
+    "menu": [
+      {
+        "id": 201,
+        "name": "Chicken Tikka Masala",
+        "image" : "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1071&q=80",
+        "description": "Grilled chicken in tomato and cream sauce",
+        "price": 14.99
+      },
+      {
+        "id": 202,
+        "name": "Vegetable Biryani",
+        "image" : "https://images.unsplash.com/photo-1512058556646-c4da40fba323?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=709&q=80",
+        "description": "Fragrant rice with mixed vegetables and spices",
+        "price": 11.99
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Sushi Haven",
+    "cuisine": "Japanese",
+    "address": "789 Elm Street, Village",
+    "phone": "555-123-4567",
+    "menu": [
+      {
+        "id": 301,
+        "name": "Sashimi Platter",
+        "image" : "https://images.unsplash.com/photo-1638866381709-071747b518c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=812&q=80",
+        "description": "Assortment of fresh raw fish slices",
+        "price": 18.99
+      },
+      {
+        "id": 302,
+        "name": "California Roll",
+        "image" : "https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=784&q=80",
+        "description": "Crab, avocado, and cucumber wrapped in seaweed",
+        "price": 8.99
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Mama's Diner",
+    "cuisine": "American",
+    "address": "234 Oak Lane, Suburb",
+    "phone": "222-333-4444",
+    "menu": [
+      {
+        "id": 401,
+        "name": "Classic Burger",
+        "image" : "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg?w=2000",
+        "description": "Beef patty, lettuce, tomato, onion, and cheese",
+        "price": 9.99
+      },
+      {
+        "id": 402,
+        "name": "Chicken Wings",
+        "image" : "https://images.unsplash.com/photo-1562967916-eb82221dfb92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80",
+        "description": "Crispy fried chicken wings with choice of sauce",
+        "price": 7.99
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Veggie Delight",
+    "cuisine": "Vegetarian",
+    "address": "567 Green Street, Countryside",
+    "phone": "888-777-6666",
+    "menu": [
+      {
+        "id": 501,
+        "name": "Quinoa Salad",
+        "image" : "https://plus.unsplash.com/premium_photo-1664476002571-ead0cbfc6d74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+        "description": "Mixed greens, quinoa, veggies, and balsamic dressing",
+        "price": 10.99
+      },
+      {
+        "id": 502,
+        "name": "Stuffed Bell Peppers",
+        "image" : "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/2/26/2/WU1307H_stuffed-peppers_s4x3.jpg.rend.hgtvcom.1280.720.suffix/1463506005081.jpeg",
+        "description": "Bell peppers filled with rice, beans, and cheese",
+        "price": 11.99
+      }
+    ]
+  }
+
+
+]

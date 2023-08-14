@@ -1,8 +1,7 @@
 import React,{ useState , useEffect , useLayoutEffect } from 'react';
 import { View , Text, SafeAreaView , TextInput , Pressable} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Footer from '../component/Footer';
-import { EyeIcon } from 'react-native-heroicons/solid';
+import { EyeIcon } from 'react-native-heroicons/outline';
 
 const intialState = {
   email : "",
@@ -24,6 +23,8 @@ const UserScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
+
+  const [text, onChangeText] = useState("");
   
 
   const handleSubmit = () => {
@@ -63,7 +64,7 @@ const UserScreen = () => {
   
   return (
     <>
-    <SafeAreaView className="w-screen h-full flex flex-column justify-between items-center mb-2 relative " >
+    <SafeAreaView className="w-screen h-full flex flex-column justify-between items-center mb-2 relative bg-red-100"  style={{padding : 20}} >
 
       <View className="w-full h-full flex flex-col justify-start items-center z-10 relative">
       
@@ -88,8 +89,8 @@ const UserScreen = () => {
                   <TextInput 
                   className='w-full h-full px-2' 
                   value={email}  
-                  placeholder='Email'
-                  onChangeText={(text)=>{setEmail(text)}}
+                  placeholder='email'
+                  onChangeText={onChangeText}
                   />
                 </View>
 
@@ -98,7 +99,7 @@ const UserScreen = () => {
                    className='w-10/12 h-full px-2'
                    value={password}
                    secureTextEntry
-                   placeholder='Password'
+                   placeholder='password'
                    onChange={(text)=>{setPassword(text)}}
                    />
                    <Pressable onPress={handleVisibility} >
@@ -130,10 +131,6 @@ const UserScreen = () => {
               
            </View>
         </View>
-
-
-
-        <Footer navigation={navigation} className="bottom-0 left-0 right-0 absolute z-50" />
     </SafeAreaView>
 
     </>

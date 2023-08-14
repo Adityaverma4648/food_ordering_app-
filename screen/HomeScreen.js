@@ -5,13 +5,14 @@ import { useNavigation } from "@react-navigation/native";
 import Cousine from "../component/Cousine";
 import Category from "../component/Category";
 import Attention from "../component/Attention";
-import Cousines from "../component/Cousine";
+import Header from "../component/Header";
+import Resturants from "../component/Resturants";
 
 
 const HomeScreen = () => {
 
   const navigation = useNavigation();
-  const [text, setText] = useState('');
+
 
   //  default navbar switched off
   useLayoutEffect(() => {
@@ -20,21 +21,26 @@ const HomeScreen = () => {
     });
   }, []);
   
-  const handleSearchBar = (e) =>{
-    setText(e.target.value);
-  }
    
   return (
 
-    <SafeAreaView className="w-full h-auto flex flex-col justify-between items-center">
+    <SafeAreaView className="w-full h-auto flex flex-col justify-between items-center bg-white">
+      
       <ScrollView className="w-full h-auto" showsVerticalScrollIndicator={true} >      
+           <Header />
+
+
+            {/*  category Block */}
+            <Category navigation={navigation} />
+           {/*  category block ends here */}
+
            {/*  cousines Block */}
-            <Cousine />
+            <Cousine navigation={navigation} />
            {/*  cousines block ends here */}
 
-           {/*  category Block */}
-            <Category />
-           {/*  category block ends here */}
+          
+           {/*  resturants */}
+           <Resturants />
             
            {/*  attention block  */}
             <Attention />

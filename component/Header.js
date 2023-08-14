@@ -1,11 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { TextInput,View ,Text, Pressable } from 'react-native';
-import { ShoppingBagIcon,MagnifyingGlassIcon, BellAlertIcon , Bars3Icon, AdjustmentsVerticalIcon, ChevronDownIcon} from "react-native-heroicons/solid";
+import { ShoppingBagIcon,MagnifyingGlassIcon, BellAlertIcon , AdjustmentsVerticalIcon, ChevronDownIcon, Squares2X2Icon} from "react-native-heroicons/solid";
 
 import { LinearGradient } from 'expo-linear-gradient';
 
 import ToggleMenu from "../component/ToggleMenu";
+import LocationComponent from './LocationComponent';
 
 const Header = () => {
 
@@ -22,34 +23,26 @@ const Header = () => {
      }
 
   return (
-       <>
+       <View className="w-full flex flex-col justify-center items-center">
        {visibility && <ToggleMenu parentCallBack={parentCallBack} /> }
       <LinearGradient 
       colors={["#f285be" ,"#96e7ff"]}
       start={{ x: 0, y: 0 }} 
       end={{ x: 1, y: 1 }}
-       className="w-full h-36 fixed flex flex-col justify-evenly items-center top-0 z-40 shadow-xl overflow-hidden p-2" >
-                <View className="w-11/12 flex flex-row justify-between items-center" >
+       className="w-full h-20 fixed flex flex-row justify-evenly items-end top-0 z-40 overflow-hidden p-2 shadow-2xl shadow-slate-600" >
+                <View className="w-11/12 h-1/2 flex flex-row justify-between items-center" >
                  <View>
                    {/*  Logo Container  */}
                    <Pressable className="flex justify-content-center align-items-center text-white" onPress={(e)=>{
                        setVisibility(!visibility);
                    }} >
-                       <Bars3Icon size={30} color="#000" />
+                       <Squares2X2Icon size={30} color="#000" />
                    </Pressable>
                 {/* Logo  block ends here */}
                </View>
- 
-                 <View className="flex flex-row justify-center items-center">
-                    <Pressable className="flex flex-row justify-center items-center" onPress={()=>{}}  >
-                    <Text className="text-lg font-bolder" >
-                       Current Location
-                    </Text>
-                    <ChevronDownIcon color="#000" size={14} className="font-bold" />
-                    </Pressable>
-                 </View>
 
-                 <View className="flex flex-row" >
+
+                 <View className="flex flex-row justify-center items-center" >
                      {/*  Settings */}
                   <Pressable className="mx-2" onPress={()=>{
                     navigation.navigate('Notification')
@@ -62,35 +55,18 @@ const Header = () => {
                  <Pressable className="mx-2" onPress={()=>{
                     navigation.navigate('Order')
                  }} >
-                    <ShoppingBagIcon color="#000" />
+                     <View className="w-8 h-8 rounded-full bg-black" >
+
+                     </View>
                  </Pressable>
                  {/*  CartBtn block ends here */}
                  </View>
-
-
-                </View>
-
-                <View className="w-11/12 flex justify-center items-center" >
-                        {/*  serach bar block */}
-                 <View className="w-full flex flex-row justify-start items-center rounded-xl border-2 border-gray-800/40 px-2" >
-                  <MagnifyingGlassIcon color = "rgba(0,0,0,0.6)" />
-                 <TextInput
-                     className="w-10/12 h-full p-2 text-black border-0 bg-transparent"
-                     name="search"
-                     id='search'
-                     placeholderTextColor="rgba(0,0,0,0.6)"
-                     placeholder="Search Dishes...."
-                     onKeyUp={(e)=>searchInitiated(e)}
-                  >
-                 </TextInput>
-                  <Pressable onPress={()=>{}} >
-                     <AdjustmentsVerticalIcon color="rgba(0,0,0,0.6)"  />
-                  </Pressable>
-                 </View>
-                        {/*  serach blockends here */}
-                </View>
+                </View>          
       </LinearGradient>
-      </>
+       <View className="w-full px-3" style={{ height: 200 }} >
+         <LocationComponent />
+       </View>
+      </View>
   )
 }
 

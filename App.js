@@ -18,7 +18,9 @@ import UserScreen from "./screen/UserScreen";
 import SavedScreen from "./screen/SavedScreen";
 import RegisterScreen from "./screen/RegisterScreen";
 import WelcomeScreen from "./screen/WelcomeScreen";
-import { SafeAreaView } from "react-native";
+import SearchScreen from "./screen/SearchScreen";
+import UniqueCousineScreen from "./screen/UniqueCousineScreen";
+import UniqueCategoryScreen from "./screen/UniqueCategoryScreen";
 
 
 const Stack = createNativeStackNavigator();
@@ -29,8 +31,6 @@ export default function App() {
     
       <NavigationContainer>
         <TailwindProvider>
-          <Header />
-
           <Stack.Navigator>
      
             <Stack.Screen name="Welcome" component={WelcomeScreen} />
@@ -42,6 +42,9 @@ export default function App() {
             <Stack.Screen name="User" component={UserScreen} />
             <Stack.Screen name="Saved" component={SavedScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="Search" component={SearchScreen} />
+            <Stack.Screen name="UniqueCousine" component={UniqueCousineScreen} />
+            <Stack.Screen name="UniqueCategory" component={UniqueCategoryScreen} />
 
           </Stack.Navigator>
 
