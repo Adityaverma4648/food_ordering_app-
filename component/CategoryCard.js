@@ -10,9 +10,9 @@ const CategoryCard = ({ navigation, image, name, data }) => {
       className="flex flex-column mx-1 shadow-2xl shadow-black rounded-lg overflow-hidden bg-white"
       style={{
         height : 124,
-        shadowColor: "red",
+        shadowColor: "black",
         shadowOffset: { width: 0, height: 0 },
-        shadowOpacity: 0.7,
+        shadowOpacity: 0.2,
         shadowRadius: 1,
       }}
     >

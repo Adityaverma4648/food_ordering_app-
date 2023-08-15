@@ -8,7 +8,6 @@ const cookieSession = require('cookie-session');
 const apiRoutes = require('./routes/apiRoutes');
 const authRoutes = require('./routes/authRoutes');
 
-// ------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -40,13 +39,8 @@ app.use(
 	})
 );
 
-//  Routes intialized
-app.get('/',(req , res)=>{
-    res.send('Hello welcome to default URL');
-})
 app.use('/api',apiRoutes);
 app.use('/auth', authRoutes);
-
 
 const start = async ()=>{
     try {

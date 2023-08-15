@@ -7,6 +7,7 @@ import Category from "../component/Category";
 import Attention from "../component/Attention";
 import Header from "../component/Header";
 import Resturants from "../component/Resturants";
+import LocationComponent from "../component/LocationComponent";
 
 
 const HomeScreen = () => {
@@ -28,7 +29,8 @@ const HomeScreen = () => {
       
       <ScrollView className="w-full h-auto" showsVerticalScrollIndicator={true} >      
            <Header />
-
+         
+            <LocationComponent  />
 
             {/*  category Block */}
             <Category navigation={navigation} />
@@ -40,7 +42,7 @@ const HomeScreen = () => {
 
           
            {/*  resturants */}
-           <Resturants />
+           <Resturants navigation={navigation} />
             
            {/*  attention block  */}
             <Attention />

@@ -12,7 +12,7 @@ const CousineCard = ({ name, image, navigation, id, data }) => {
         height: 124,
         shadowColor: "black",
         shadowOffset: { width: 0, height: 0 },
-        shadowOpacity: 0.7,
+        shadowOpacity: 0.1,
         shadowRadius: 1,
       }}
     >

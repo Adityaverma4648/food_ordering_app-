@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useLayoutEffect} from 'react'
 import { SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -16,8 +16,8 @@ const OrderScreen = ({navigation,route}) => {
   }, []);
 
   return (
-    <SafeAreaView>
-       <Text>
+    <SafeAreaView className="w-full h-full flex items-center justify-center bg-red-100 font-semibold">
+       <Text className="text-lg" >
           OrderScreen
        </Text>
     </SafeAreaView>

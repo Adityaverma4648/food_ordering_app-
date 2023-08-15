@@ -1,8 +1,6 @@
 const express = require('express');
 const router  = express.Router();
 const passport = require('passport');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
 const generateToken = require("../config/Jwt");
 const jwt = require('jsonwebtoken');
 
@@ -10,6 +8,8 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../model/User');
 
+
+//  helper function
 const verifyToken = (req , res , next) =>{
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
@@ -23,16 +23,16 @@ const verifyToken = (req , res , next) =>{
 
 //  user controller - post data gathering-- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 router.post("/register", async (req,res)=>{
-    const {userName, email, isAdmin , password} = req.body;
+    const {userName, email, password} = req.body;
 
-    if(!userName || !email || !password || !isAdmin ){
+    if(!userName || !email || !password ){
         res.status(400);
         throw new Error("Fill all the entries!");
     }
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      res.status(400).json('User already Exists...');
+      res.status(400).json({ message : "User Already Exists..."});
     }
     const user = await User.create({
         userName,
@@ -42,10 +42,10 @@ router.post("/register", async (req,res)=>{
       });
     
       if (user) {
-        res.status(201).json("Registered Successfully");
+        res.status(200).json({message : "success" });
         //  redirected on login 
       } else {
-        res.status(400).json('CouldNot Register');
+        res.status(400).json({message : "unsuccessfull"});
       }
 
 });
@@ -60,16 +60,18 @@ router.post("/login",(async (req, res) => {
     const token  = generateToken(user);
     res.status(200).json({token});
   } else {
-    res.status(200).redirect('UserError');
+    res.status(400).redirect('UserError');
   }
 }))
 
-router.post('/logout',verifyToken , async (req , res)=>{
-  localStorage.removeItem("token");
+
+//  logout ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.post('/logout', verifyToken , async (req , res)=>{
   res.status(200).send('Successfully Logged Out!');
 } )
 
-//  google oauth20
+//  google oauth20 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 router.get("/login/success", (req, res) => {
 	if (req.user) {

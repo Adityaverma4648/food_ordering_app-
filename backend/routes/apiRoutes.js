@@ -5,58 +5,9 @@ const router  = express.Router();
 const category = require('../data/category.json');
 const cousines = require('../data/cousine.json');
 
-// importing all models required
-
-//  Cousines-------------------------------------------------------------------------
-router.post('/fetchCousines',(req,res)=>{
-   res.send(cousines);
+// fetch Category
+router.get('/category',async (req, res)=>{
+   res.status(200).json({})
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-router.post('/',(req , res)=>{
-   res.send(category);
-})
-
 
 module.exports = router;

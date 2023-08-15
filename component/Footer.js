@@ -70,7 +70,7 @@ const Footer = () => {
       <Pressable
         className="flex flex-col justify-center items-center"
         onPress={() => {
-          navigation.navigate("User");
+          navigation.navigate("Order");
         }}
       >
         <ShoppingBagIcon color="#000" size={20} />

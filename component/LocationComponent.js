@@ -40,13 +40,12 @@ const LocationComponent = () => {
   }, [latitude, longitude, country]);
 
   return (
-    <View className="w-full flex justify-center items-center rounded-xl mt-2 overflow-hidden"  >
+    <View className="w-full flex justify-center items-center rounded-xl overflow-hidden p-2"  style={{ height: 200 }}  >
       {country ? (
         <View
           className="w-full h-full flex flex-col justify-center items-center relative"
-          
         >
-          <View className="w-full h-full flex justify-center items-center relative">
+          <View className="w-full h-full flex justify-center items-center relative rounded-xl overflow-hidden">
             <MapView
               className="bg-gray-400"
               style={{ width: "100%", height: "100%" }}
@@ -65,7 +64,8 @@ const LocationComponent = () => {
             </MapView>
           </View>
 
-          <View className="absolute bottom-0 bg-white blur-md m-2 p-2 flex flex-row justify-center items-center w-11/12" >
+          <View className="absolute bottom-0 bg-white blur-md m-2 p-2 flex flex-row justify-center items-center w-11/12 shadow-md shadow-black rounded-lg" style={{shadowOpacity : 0.5,
+          shadowColor : "black",shadowRadius : [{width : 0 ,height : 0}] ,shadowRadius : 4  }} >
                <View className="" >
                    <MapPinIcon color="#000" size={25} />
                </View>

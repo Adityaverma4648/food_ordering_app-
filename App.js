@@ -21,6 +21,7 @@ import WelcomeScreen from "./screen/WelcomeScreen";
 import SearchScreen from "./screen/SearchScreen";
 import UniqueCousineScreen from "./screen/UniqueCousineScreen";
 import UniqueCategoryScreen from "./screen/UniqueCategoryScreen";
+import UniqueResturantScreen from "./screen/UniqueResturantScreen";
 
 
 const Stack = createNativeStackNavigator();
@@ -45,7 +46,7 @@ export default function App() {
             <Stack.Screen name="Search" component={SearchScreen} />
             <Stack.Screen name="UniqueCousine" component={UniqueCousineScreen} />
             <Stack.Screen name="UniqueCategory" component={UniqueCategoryScreen} />
-
+            <Stack.Screen name="UniqueResturant" component={UniqueResturantScreen} />
           </Stack.Navigator>
 
           <Footer />
